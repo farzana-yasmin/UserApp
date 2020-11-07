@@ -1,0 +1,21 @@
+{
+    "name": "UserApp",
+    "authors": [
+        "Farzana Yasmin"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "homepage": "http://localhost:8000",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "4.x",
+        "jquery": "3.4.1",
+        "font-awesome": "^5.0.9",
+        "include-media": "1.4.9",
+        "animate.css": "^3.5.2",
+        "wow": "^1.1.2",
+        "jquery-sticky": "garand/sticky#^1.0.4",
+        "sidr": "artberri/sidr#^2.2.1"
+    }
+}

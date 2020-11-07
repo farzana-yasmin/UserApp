@@ -1,0 +1,10 @@
+/.vscode
+/.idea
+.DS_Store
+/env
+/venv
+user_app/.env
+__pycache__
+/assets/vendor
+/node_modules
+

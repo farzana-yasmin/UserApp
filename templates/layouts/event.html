@@ -1,0 +1,9 @@
+{% if messages %}
+<br>
+
+<div class="container-fluid">
+    {% for message in messages %} {% if message.extra_tags == None %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags  }}{% endif %}">{{ message|safe }}</div>
+    {% endif %} {% endfor %}
+</div>
+{% endif %}
