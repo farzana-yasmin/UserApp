@@ -1,0 +1,108 @@
+{% extends 'master.html' %} 
+{% block title %}List{% endblock %} 
+{% block content %} 
+{% load widget_tweaks %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="text-left">
+            <h5>User App</h5>
+        </div>
+        <div class="text-right">
+            <a href="{% url 'accounts:user_create' %}" class="btn btn-success m-0">+ Add</a>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">Add New User</div>
+            <div class="card-body">
+                <form method="POST" novalidate>
+                        {% csrf_token %}
+                        <div class='form-group'>
+                            <label for="id_{{ form.first_name.name }}">{{ form.first_name.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.first_name|add_class:"form-control" }}
+                            {% for error in form.first_name.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.last_name.name }}">{{ form.last_name.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.last_name|add_class:"form-control" }}
+                            {% for error in form.last_name.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.user_type.name }}">{{ form.user_type.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.user_type|add_class:"form-control" }}
+                            {% for error in form.user_type.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.parent_id.name }}">{{ form.parent_id.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.parent_id|add_class:"form-control" }}
+                            {% for error in form.parent_id.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.street.name }}">{{ form.street.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.street|add_class:"form-control" }}
+                            {% for error in form.street.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.city.name }}">{{ form.city.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.city|add_class:"form-control" }}
+                            {% for error in form.city.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.state.name }}">{{ form.state.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.state|add_class:"form-control" }}
+                            {% for error in form.state.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="id_{{ form.zip_code.name }}">{{ form.zip_code.label }} <span style="color:#dc3545">*</span>:</label>
+                            {{ form.zip_code|add_class:"form-control" }}
+                            {% for error in form.zip_code.errors %}
+                            <span class='text-danger' style="font-size: 13px;">
+                                {{ error }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        <div class='form-group'>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

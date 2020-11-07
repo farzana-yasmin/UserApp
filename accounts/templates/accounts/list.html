@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12">
         <div class="text-right">
-            <a href="#" class="btn btn-success m-0">+ Add</a>
+            <a href="{% url 'accounts:user_create' %}" class="btn btn-success m-0">+ Add</a>
         </div>
         <br>
         <div class="card">
@@ -12,18 +12,20 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Parent</th>
-                            <th>Child</th>
+                            <th>Name</th>
+                            <th>User Type</th>
                             <th>Address</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                    {% for obj in object_list %}
                         <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
+                            <td>{{ obj }}</td>
+                            <td>{{ obj.get_user_type_display }}</td>
+                            <td>{{ obj.address_details }}</td>
                         </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
