@@ -1,6 +1,6 @@
 from django.test import TestCase
 from .forms import UserCreateForm
-from django.urls import reverse
+
 
 class UserFormTest(TestCase):
     def test_user_form(self):

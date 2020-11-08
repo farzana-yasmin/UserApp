@@ -70,13 +70,13 @@ class PersonSerializer(serializers.ModelSerializer):
         return person
 
     def update(self, instance, validated_data):
-        Person.objects.filter(id=instance.id).\
+        Person.objects.filter(id=instance.id). \
             update(
-                first_name=validated_data['first_name'],
-                last_name=validated_data['last_name'],
-                user_type=validated_data['user_type'],
-                parent_id=validated_data['parent_id'] if validated_data['user_type'] == 'child' else None,
-            )
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
+            user_type=validated_data['user_type'],
+            parent_id=validated_data['parent_id'] if validated_data['user_type'] == 'child' else None,
+        )
 
         if validated_data['user_type'] == 'parent':
             Address.objects.update_or_create(
@@ -91,4 +91,4 @@ class PersonSerializer(serializers.ModelSerializer):
         else:
             Address.objects.filter(person=instance).delete()
 
-        return instance
+        return Person.objects.get(id=instance.id)
