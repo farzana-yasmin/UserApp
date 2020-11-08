@@ -15,7 +15,7 @@
       In the project, you can find:
             * User create, update, delete and list.
             * User api for create, update, delete and list.
-            * Unit test case for user crud and api.
+            * Unit test case for user crud and api. (Run "python manage.py test" for TestCase.)
     
 # Installation
     Clone the repository
