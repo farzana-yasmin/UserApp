@@ -10,6 +10,8 @@ USER_URL = reverse('api:person-list')
 
 
 class UserApiTest(TestCase):
+    """ Unit test for user api. """
+
     def setUp(self):
         self.client = APIClient()
         self.data = {'first_name': 'oma',
@@ -38,6 +40,8 @@ class UserApiTest(TestCase):
             )
 
     def test_user_create(self):
+        """ Unit test for creating user. """
+
         response = self.client.post(USER_URL, self.data, format="json")
         self.assertEqual(response.data['first_name'], self.data['first_name'])
         self.assertEqual(response.data['city'], self.data['city'])
@@ -45,6 +49,8 @@ class UserApiTest(TestCase):
         print("Successfully created an object")
 
     def test_user_list(self):
+        """ Unit test for listing user. """
+
         response = self.client.get(USER_URL, format="json")
         self.assertEqual(response.status_code, 200)
         qs = Person.objects.filter(first_name="oma")
@@ -52,6 +58,8 @@ class UserApiTest(TestCase):
         print("List of object")
 
     def test_user_details(self):
+        """ Unit test for updating the specific user. """
+
         person_objs = Person.objects.all()
         if person_objs:
             data = {
@@ -71,6 +79,8 @@ class UserApiTest(TestCase):
             print("Updated an object")
 
     def test_user_delete(self):
+        """ Unit test for deleting the specific user. """
+
         person_objs = Person.objects.all()
         if person_objs:
             response = self.client.delete(reverse('api:person-detail', args=[person_objs[0].id]))

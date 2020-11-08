@@ -3,6 +3,8 @@ from .models import Person
 
 
 class UserCreateForm(forms.ModelForm):
+    """A form for creating new users. Includes all the fields."""
+
     street = forms.CharField(max_length=100, required=False)
     city = forms.CharField(max_length=100, required=False)
     state = forms.CharField(max_length=100, required=False)

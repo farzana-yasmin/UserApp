@@ -3,6 +3,8 @@ from .forms import UserCreateForm
 
 
 class UserFormTest(TestCase):
+    """ Unit test for create a user. """
+
     def test_user_form(self):
         form_data = {'first_name': 'oma',
                      'last_name': 'gonza',

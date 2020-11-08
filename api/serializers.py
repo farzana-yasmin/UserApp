@@ -5,6 +5,24 @@ from accounts.models import *
 
 
 class PersonSerializer(serializers.ModelSerializer):
+    """
+    Author: Farzana Yasmin.
+
+    Purpose: Serializer for get, post, put, delete user.
+    Pre condition: N/A.
+    Post condition: N/A.
+    Library dependency: N/A.
+    Database Interaction: accounts.models.Person will be hit to fetch all the users.
+    File Location: api/serializers.py.
+    Testing Information: Success.
+
+    Args:
+        serializers.ModelSerializer: rest_framework
+
+    Returns:
+        Object list
+    """
+
     street = serializers.CharField(max_length=100, required=False)
     city = serializers.CharField(max_length=100, required=False)
     state = serializers.CharField(max_length=100, required=False)
@@ -17,6 +35,16 @@ class PersonSerializer(serializers.ModelSerializer):
             self.fields['parent_id'].queryset = Person.objects.exclude(id=kwargs.get('instance').id)
 
     def validate(self, data):
+        """
+        Purpose: Validation for request data.
+
+        Args:
+            data: request data
+
+        Returns:
+            data
+        """
+
         msg = "This field is required"
 
         if data['user_type'] == 'child':
@@ -38,6 +66,16 @@ class PersonSerializer(serializers.ModelSerializer):
         fields = ['id', 'first_name', 'last_name', 'user_type', 'parent_id', 'street', 'city', 'state', 'zip_code']
 
     def to_representation(self, instance):
+        """
+        Purpose: Represent all users.
+
+        Args:
+            instance: object instance
+
+        Returns:
+            object list
+        """
+
         rep = super().to_representation(instance)
 
         try:
@@ -51,6 +89,25 @@ class PersonSerializer(serializers.ModelSerializer):
         return rep
 
     def create(self, validated_data):
+        """
+        Author: Farzana Yasmin.
+
+        Purpose: Submit data.
+        Pre condition: N/A.
+        Post condition: N/A.
+        Library dependency: N/A.
+        Database Interaction: accounts.models.Person will be hit to create an users and
+                          also hit accounts.models.Address for creating address details.
+        File Location: api/serializers.py.
+        Testing Information: Success.
+
+        Args:
+            validated_data
+
+        Returns:
+            Person object
+        """
+
         person = Person.objects.create(
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
@@ -70,6 +127,25 @@ class PersonSerializer(serializers.ModelSerializer):
         return person
 
     def update(self, instance, validated_data):
+        """
+        Author: Farzana Yasmin.
+
+        Purpose: Update specific user.
+        Pre condition: N/A.
+        Post condition: N/A.
+        Library dependency: N/A.
+        Database Interaction: accounts.models.Person will be hit to update the specific user and
+                          also hit accounts.models.Address for creating/updating address details.
+        File Location: api/serializers.py.
+        Testing Information: Success.
+
+        Args:
+            validated_data, instance
+
+        Returns:
+            Person object
+        """
+
         Person.objects.filter(id=instance.id). \
             update(
             first_name=validated_data['first_name'],
