@@ -27,7 +27,7 @@
     Copy the contents of user_app/.env.example to user_app/.env and modify user_app/.env as necessary
     Now you need to migrate the database by "python manage.py migrate"
     Run python manage.py runserver to run the server.
-    Finally, visit with localhost:8000 in your browser and localhost:8000/api also for getting the api.
+    Finally, visit with localhost:8000 in your browser and localhost:8000/api for getting the api.
     
 
       
