@@ -11,6 +11,12 @@
     MySQL
     Nodejs version >= 8.0
     
+ # Features
+      In the project, you can find:
+            * User create, update, delete and list.
+            * User api for create, update, delete and list.
+            * Unit test case for user crud and api.
+    
 # Installation
     Clone the repository
     Run command python -m venv env
@@ -22,3 +28,6 @@
     Now you need to migrate the database by "python manage.py migrate"
     Run python manage.py runserver to run the server.
     Finally, visit with localhost:8000 in your browser and localhost:8000/api also for getting the api.
+    
+
+      
