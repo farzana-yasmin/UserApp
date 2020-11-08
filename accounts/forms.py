@@ -10,7 +10,7 @@ class UserCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if kwargs['instance']:
+        if kwargs.get('instance'):
             self.fields['parent_id'].queryset = Person.objects.exclude(id=kwargs['instance'].id)
 
             try:
