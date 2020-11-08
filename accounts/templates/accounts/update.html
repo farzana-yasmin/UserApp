@@ -1,5 +1,5 @@
 {% extends 'master.html' %}
-{% block title %}Create{% endblock %}
+{% block title %}Edit{% endblock %}
 {% block content %}
 
 <div class="row justify-content-center">
@@ -12,14 +12,14 @@
         </div>
         <br>
         <div class="card">
-            <div class="card-header">Add New User</div>
+            <div class="card-header">Edit User</div>
             <div class="card-body">
                 <form method="POST" novalidate>
                     {% csrf_token %}
                     {% include 'accounts/form.html' %}
 
                     <div class='form-group'>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Update</button>
                     </div>
                 </form>
             </div>

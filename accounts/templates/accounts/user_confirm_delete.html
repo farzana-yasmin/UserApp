@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block title %}Delete{% endblock %}
+{% block content %}
+<div class='container'>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-8">
+            <div class='card'>
+                <div class="card-header">
+                    <h4>Delete User</h4>
+                    <p>Confirm delete user</p>
+                </div>
+                <div class="card-block" style="margin: 20px;">
+                    <form method="post">{% csrf_token %}
+                        <p>Are you sure you want to delete "{{ object }}"?</p>
+                        <input type="submit" value="Yes, I am sure" class='btn btn-danger'>
+                        <a class="btn btn-secondary" href="{% url 'accounts:user_list' %}">No, take me back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
